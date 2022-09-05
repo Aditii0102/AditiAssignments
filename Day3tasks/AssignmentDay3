@@ -1,0 +1,30 @@
+package Day3;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+
+public class Day3Assignment {
+
+	public static void main(String[] args) {
+    //List of square of all distinct  number
+		List<Integer> numbers = Arrays.asList(9, 10, 3, 4, 7, 3, 4);
+		List<Integer> squareofnumber = numbers.stream().distinct().map(n-> n*n).collect(Collectors.toList());
+		System.out.println("Square of number :- "+squareofnumber);
+
+		//All even number in the string
+
+		List<Integer> findevennumbers = numbers.stream().filter(n->n%2==0).collect(Collectors.toList());
+		System.out.println("find even numbers :- "+findevennumbers);
+
+		//Total number of elements in the  list
+
+		Long Elementsinthelist = numbers.stream().count();
+		System.out.println("Elements in the list are :- "+ Elementsinthelist);
+
+
+
+	}
+
+}
