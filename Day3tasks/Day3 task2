@@ -1,0 +1,29 @@
+package day3;
+
+import java.util.List;
+import java.util.Arrays;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+
+public class Citycc {
+
+	public static void main(String[] args) {
+		
+		List<String> cityList = Arrays.asList("chennai", "", "Kanyakumari", "Gurgaon", "delhi", "chicago", "chennai");
+		
+		long count = cityList.stream().filter(cityName -> cityname.startsWith("c")).count();
+		System.out.println("count of cities starts with c = " + count);
+		
+		System.out.println("\n Print cities using forEach: ");
+		cityList.stream().filter(cityName -> !cityName.isEmpty()).forEach(cityname -> System.out.println(cityName));
+		
+		List<String> distinctList = cityList.stream().filter(cityName -> !cityname.isEmpty()).distinct().collect(Collectors.toList());
+		System.out.println("\ndistinctList: " + distinctList);
+		
+		long countEmptyString = cityList.stream().filter(cityName -> cityname.isEmpty()).count();
+		System.out.println("\ncount of cities which are empty string = " + countEmptyString);
+		
+		long sum1To25 = IntStream.range(1, 26).sum();
+		System.out.println("\nSum of numbers 1 to 25 = " + sum1To25);
+	}
+}
