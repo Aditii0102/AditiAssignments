@@ -1,0 +1,38 @@
+package java8.Day4;
+import java.util.Optional;
+import java.util.stream.Stream;
+
+public class Task1 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		// findany
+		Stream<String> FoodStream1 = Stream.of("Pizza", "Pasta", "Pastry", "Burger");
+		
+		Optional<String> answer1 = FoodStream1.filter(name -> Character.isUpperCase(name.charAt(0))).findAny();
+		System.out.println(answer1);
+		
+	   // findfirst
+		Stream<String> FoodStream2 = Stream.of("Pizza", "Pasta", "Pastry", "Burger");
+		
+		Optional<String> answer2 = FoodStream2.filter(name -> Character.isUpperCase(name.charAt(0))).findFirst();
+		System.out.println(answer2);
+		
+		//anymatch
+		Stream<String> FoodStream3 = Stream.of("Pizza", "Pasta", "Pastry", "Burger");
+		Optional<String> answer3 = FoodStream3.filter(name -> Character.isUpperCase(name.charAt(0))).findFirst();
+		
+		System.out.println(answer3);
+		
+		//allmatch
+		Stream<String> FoodStream4 = Stream.of("Pizza", "Pasta", "Pastry", "Burger");
+		boolean answer4 = FoodStream4.allMatch(name -> Character.isUpperCase(name.charAt(0)));;
+		System.out.println(answer4);
+		
+		Stream<String> FoodStream5 = Stream.of("Pizza", "Pasta", "Pastry", "Burger");
+		boolean answer5 = FoodStream5.noneMatch(name -> Character.isUpperCase(name.charAt(0)));
+		System.out.println(answer5);
+		
+		
+}
+}
