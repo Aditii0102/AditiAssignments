@@ -1,0 +1,80 @@
+MariaDB [(none)]> create database;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1
+MariaDB [(none)]> create database Assignment;
+Query OK, 1 row affected (0.047 sec)
+
+MariaDB [(none)]> use Assignment;
+Database changed
+MariaDB [Assignment]> create table Student(
+    -> id int not NULL,
+    -> name varchar(100) not null, 
+    -> address varchar(100),
+    -> phoneNo int not null,
+    -> primary key(id));
+Query OK, 0 rows affected (0.082 sec)
+
+MariaDB [Assignment]> desc Assignment;
+ERROR 1146 (42S02): Table 'assignment.assignment' doesn't exist
+MariaDB [Assignment]> desc Student;
++---------+--------------+------+-----+---------+-------+
+| Field   | Type         | Null | Key | Default | Extra |
++---------+--------------+------+-----+---------+-------+
+| id      | int(11)      | NO   | PRI | NULL    |       |
+| name    | varchar(100) | NO   |     | NULL    |       |
+| address | varchar(100) | YES  |     | NULL    |       |
+| phoneNo | int(11)      | NO   |     | NULL    |       |
++---------+--------------+------+-----+---------+-------+
+4 rows in set (0.019 sec)
+
+MariaDB [Assignment]> insert into Student(id,name,address,phoneNo) values(1,"Riya","Sector",456789),(2,"sourav","qwey",456789),(5,"sanya","cfghuio",4567890);
+Query OK, 3 rows affected (0.035 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+MariaDB [Assignment]> show Student;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'Student' at line 1
+MariaDB [Assignment]> select* from Student;
++----+--------+---------+---------+
+| id | name   | address | phoneNo |
++----+--------+---------+---------+
+|  1 | Aditi  | Sector |  85757 |
+|  3 | gaurav| patna  |  767678 |
+|  5 | riya  | Hyderabad| 765753 |
++----+--------+---------+---------+
+3 rows in set (0.000 sec)
+
+MariaDB [Assignment]> select * from Student where id = 1;
++----+------+---------+---------+
+| id | name | address | phoneNo |
++----+------+---------+---------+
+|  1 | Aditi | Sector  |  85757 |
++----+------+---------+---------+
+1 row in set (0.001 sec)
+
+MariaDB [Assignment]> update Student
+    -> set address = "Mumbai"
+    -> where id =3;
+Query OK, 1 row affected (0.007 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MariaDB [Assignment]> select* from Student;
++----+--------+---------+---------+
+| id | name   | address | phoneNo |
++----+--------+---------+---------+
+|  1 | Aditi  |   sector |  85757 |
+|  3 | gaurav| Mumbai |  767678 |
+|  5 | riya | Hyderabad | 765753|
++----+--------+---------+---------+
+3 rows in set (0.000 sec)
+
+MariaDB [Assignment]> delete from Student
+    -> where id =5;
+Query OK, 1 row affected (0.006 sec)
+
+MariaDB [Assignment]> select* from Student;
++----+--------+---------+---------+
+| id | name   | address | phoneNo |
++----+--------+---------+---------+
+|  1 | Aditi  | Sector  |  85757 |
+|  3 | gaurav | Mumbai |  767678
++----+--------+---------+---------+
+2 rows in set (0.000 sec)
